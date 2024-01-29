@@ -1,0 +1,13 @@
+php artisan make:model Lesson --migration
+php artisan make:model Category --migration
+php artisan make:model level --migration
+php artisan make:migration create_category_lesson_table
+php artisan make:seeder LevelSeeder
+php artisan migrate
+composer require laravel/jetstream
+composer require spatie/laravel-permission
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan db:seed
+php artisan make:controller CategoryController --resource
+php artisan make:controller LessonController --resource
+php artisan make:controller RoleController --resource
